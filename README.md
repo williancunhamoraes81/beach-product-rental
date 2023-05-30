@@ -1,54 +1,29 @@
 # beach-product-rental
 
-## Esse é um projecto Spring Boot para ser usado como base para o teste a seguir:
-O objetivo principal do teste é verificar o algorítimo criado pelo candidato para calcular o valor a ser pago para o funcionário.
+### 📚 Pré-requisitos
 
-## Cenário: A empresa XYZ trabalha com aluguel de produtos que são utilizados na praia.
+- 🌴 Git
+- ☕ Java 11
+- 📦 Maven
+- ⚙️ Docker
 
-1. cada produto possui um valor cobrado por hora, o sistema aceita apenas valores inteiros para o campo hora;
-1. funcionário recebe uma comisão baseada no valor total cobrado pelo produto.
+## 📋 Antes de iniciar a aplicação
+Rodar arquivo docker-compose.yaml encontrado no diretório devops/docker para que banco de dados seja criado.
 
-## Produtos e comissões:
-Para SURFBOARD:
-Preço por hora: R$50,00
-Porcentagem funcionário: 15.6%
+## 📋 Ao iniciar a aplicação 
+Serão criadas as tabelas conforme arquivo V001__create_table_product_order.sql 
+E serão criados os produtos abaixo:
 
-Para BEACH_CHAIR:
-Preço por hora: R$35,00
-Porcentagem funcionário: 5%
+INSERT INTO product (id,product_type,product_value,user_amount) VALUES (1,'SURFBOARD',5000,1560);
+INSERT INTO product (id,product_type,product_value,user_amount) VALUES (2,'BEACH_CHAIR',3500,500);
+INSERT INTO product (id,product_type,product_value,user_amount) VALUES (3,'SUNSHADE',4000,1030);
+INSERT INTO product (id,product_type,product_value,user_amount) VALUES (4,'SAND_BOARD',2500,900);
+INSERT INTO product (id,product_type,product_value,user_amount) VALUES (5,'BEACH_TABLE',2500,810);
 
-Para SUNSHADE:
-Preço por hora: R$40,00
-Porcentagem funcionário: 10.3%
+## 🚢 Utilizando API
+No diretório devops/postman se encontra a collection de chamadas api
 
-Para SAND_BOARD:
-Preço por hora: R$25,00
-Porcentagem funcionário: 9%
-
-Para BEACH_TABLE:
-Preço por hora: R$25,00
-Porcentagem funcionário: 8.1%
-
-## Descrição dos campos da classe ProductOrder.
-1. userName: Login do usuário;
-1. productType: Tipo do produto;
-1. timeHour: Tempo em horas que o produto ficou locado;
-1. productValue: Valor do produto por hora;
-1. productTotal: Valor do produto vezes tempo em horas locado;
-1. userAmount: Comissão a ser recebida pelo usuário(Funcionário);
-
-## Exemplo:
-Funcionário Pedro alugou o produto SURFBOARD por 4h.
-Pedro vai receber uma comissão no valor de R$31,20 pelo aluguel do produto SURFBOARD.
-
-# ATENÇÃO:
-- O valor do produto, total do produto e o valor a ser pago para o funcionário devem ser salvos no banco de dados com o valor multiplicado por 100. Para o exemplo do Pedro, o valor da comissão a ser salva no banco de dados é de 3120.
-- As classes ProductOrderDTO e ProductOrder não podem ser alteradas.
-- Fique a vontade para criar novas classes.
-
-Adicione na classe ProductOrderController um método para trazer a lista de pedidos, deve existir pelo menos um campo para ser utilizado como filtro.
-
-Fique a vontade para adicionar mais funcionalidades ao teste, como: criação de testes unitários, utilização de docker etc.
+** Importante verificar que é utilizado validação de Token ( simples ) na chamada dos endpoints
 
 
-# Boa sorte!!!
+
